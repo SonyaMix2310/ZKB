@@ -1,221 +1,29 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Золото Крыма — Бахчисарай</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: #0b0603; }
-    body {
-      display: grid;
-      place-items: start center;
-      font-family: Georgia, 'Times New Roman', serif;
-      overflow-x: hidden;
-    }
+<img class="bg-art" src="https://static.tildacdn.com/tild3737-6632-4130-b666-343633323332/back_bahchisaray.png" alt="" aria-hidden="true" />
 
-    /*
-      Mobile-first layout for Tilda / in-app browser.
-      The design source is 1080×1920. All overlay coordinates are percentages,
-      so the page scales cleanly to any mobile width.
-    */
-    .zk-page {
-      position: relative;
-      width: min(100vw, 540px);
-      aspect-ratio: 1080 / 1920;
-      overflow: hidden;
-      background: #130b06;
-      color: #3b1e0f;
-      box-shadow: 0 0 40px rgba(0,0,0,.55);
-      container-type: inline-size;
-    }
+<a class="logo" href="https://vk.com/zoloto_krima" target="_blank" rel="noopener" aria-label="Открыть группу Золото Крыма ВКонтакте">
+    <img src="https://static.tildacdn.com/tild6261-3462-4332-b739-343432333735/__.png" alt="Золото Крыма" />
+</a>
 
-    .bg-art {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      z-index: 3;
-      pointer-events: none;
-      user-select: none;
-    }
+<a class="vk-top" href="https://vk.com/zoloto_krima" target="_blank" rel="noopener" aria-label="Открыть ВКонтакте">
+    <img src="https://static.tildacdn.com/tild6635-6335-4264-a334-363137613938/vk_icon.png" alt="VK" />
+</a>
 
-    .logo {
-      position: absolute;
-      left: 3.0%;
-      top: 2.3%;
-      width: 21%;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 4px 7px rgba(0,0,0,.48));
-      z-index: 6;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .logo img { width: 100%; height: auto; display: block; }
-
-    .vk-top {
-      position: absolute;
-      right: 6.6%;
-      top: 3.0%;
-      width: 11%;
-      aspect-ratio: 1;
-      border-radius: 999px;
-      display: block;
-      z-index: 6;
-      filter: drop-shadow(0 9px 13px rgba(0,0,0,.35));
-      transition: transform .18s ease, filter .18s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .vk-top:hover { transform: scale(1.055); filter: drop-shadow(0 13px 18px rgba(0,0,0,.42)); }
-    .vk-top:active { transform: scale(.97); }
-    .vk-top img { width: 100%; height: 100%; display: block; }
-
-    .video-wrap {
-      position: absolute;
-      left: 5.8%;
-      top: 40.05%;
-      width: 88.5%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: 2.2vw;
-      background: #050301;
-      z-index: 1;
-    }
-
-    .video-frame {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      object-fit: cover;
-      display: block;
-    }
-
-    .play-button {
-      position: absolute;
-      left: 50%;
-      top: 53.9%;
-      width: 19%;
-      transform: translate(-50%, -50%);
-      z-index: 6;
-      display: block;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      border-radius: 999px;
-      -webkit-tap-highlight-color: transparent;
-      filter: drop-shadow(0 8px 14px rgba(0,0,0,.32));
-      transition: transform .18s ease, filter .18s ease;
-    }
-    .play-button:hover { transform: translate(-50%, -50%) scale(1.055); filter: drop-shadow(0 13px 18px rgba(0,0,0,.42)); }
-    .play-button:active { transform: translate(-50%, -50%) scale(.97); }
-    .play-button img { width: 100%; height: auto; display: block; }
-    .play-button.is-hidden { opacity: 0; pointer-events: none; }
-
-    .cta {
-      position: absolute;
-      left: 50%;
-      top: 68.25%;
-      width: 78.3%;
-      transform: translateX(-50%);
-      z-index: 6;
-      display: block;
-      -webkit-tap-highlight-color: transparent;
-      filter: drop-shadow(0 9px 12px rgba(55,28,9,.42));
-      transition: transform .18s ease, filter .18s ease;
-    }
-    .cta:hover { transform: translateX(-50%) scale(1.035); filter: drop-shadow(0 15px 18px rgba(55,28,9,.48)); }
-    .cta:active { transform: translateX(-50%) scale(.985); }
-    .cta img { width: 100%; height: auto; display: block; }
-
-    .caption {
-      position: absolute;
-      left: 11%;
-      right: 11%;
-      top: 75.75%;
-      z-index: 6;
-      margin: 0;
-      text-align: center;
-      color: #381B02;
-      text-shadow: 0 1px 0 rgba(255,226,177,.32);
-      font-size: clamp(15px, 3.35cqw, 18px);
-      line-height: 1.05;
-      font-family: 'Cormorant', Georgia, 'Times New Roman', serif;
-      font-weight: 600;
-      letter-spacing: -.025em;
-    }
-
-    @media (min-width: 541px) {
-      .video-wrap { border-radius: 12px; }
-    }
-  </style>
-</head>
-<body>
-  <main class="zk-page" aria-label="Золото Крыма — Бахчисарай, сладость Востока">
-    <img class="bg-art" src="assets/back_bahchisaray.png" alt="" aria-hidden="true" />
-
-    <a class="logo" href="https://vk.com/zoloto_krima" target="_blank" rel="noopener" aria-label="Открыть группу Золото Крыма ВКонтакте">
-      <img src="assets/Лого Золото Крыма.png" alt="Золото Крыма" />
-    </a>
-
-    <a class="vk-top" href="https://vk.com/zoloto_krima" target="_blank" rel="noopener" aria-label="Открыть ВКонтакте">
-      <img src="assets/vk_icon.png" alt="VK" />
-    </a>
-
-    <section class="video-wrap" aria-label="Видео о Бахчисарае">
-      <video
+<section class="video-wrap" aria-label="Видео о Бахчисарае">
+    <video
         id="bahchisarayVideo"
         class="video-frame"
-        poster="assets/video-poster-bahchisaray.png"
+        poster="https://static.tildacdn.com/tild6632-3035-4366-b365-646432633835/video-poster-bahchis.png"
         preload="metadata"
         playsinline
-      >
+    >
         <source src="assets/004_Бахчисарай_medium.mp4" type="video/mp4" />
-      </video>
-    </section>
+    </video>
+</section>
 
-    <button class="play-button" type="button" aria-label="Смотреть видео">
-      <img src="assets/Play _button.png" alt="Смотреть видео" />
-    </button>
+<button class="play-button" type="button" aria-label="Смотреть видео">
+    <img src="https://static.tildacdn.com/tild6234-3964-4837-b239-333866346439/Play__button.png" alt="Смотреть видео" />
+</button>
 
-    <a class="cta" href="https://vk.com/zoloto_krima" target="_blank" rel="noopener" aria-label="Подписаться на нас ВКонтакте">
-      <img src="assets/Кнопка_подписаться.png" alt="Подписаться на нас ВКонтакте" />
-    </a>
-
-    <p class="caption">Чтобы больше узнать об истории Крыма<br>и наших подарочных наборах</p>
-  </main>
-  <script>
-    const video = document.getElementById('bahchisarayVideo');
-    const playButton = document.querySelector('.play-button');
-
-    async function playVideo() {
-      try {
-        await video.play();
-        video.setAttribute('controls', '');
-        playButton.classList.add('is-hidden');
-      } catch (error) {
-        console.warn('Video play was blocked or failed:', error);
-      }
-    }
-
-    playButton.addEventListener('click', playVideo);
-    video.addEventListener('click', () => {
-      if (video.paused) playVideo();
-    });
-    video.addEventListener('pause', () => {
-      if (!video.ended) playButton.classList.remove('is-hidden');
-    });
-    video.addEventListener('play', () => playButton.classList.add('is-hidden'));
-    video.addEventListener('ended', () => {
-      video.removeAttribute('controls');
-      playButton.classList.remove('is-hidden');
-    });
-  </script>
-</body>
-</html>
+<a class="cta" href="https://vk.com/zoloto_krima" target="_blank" rel="noopener" aria-label="Подписаться на нас ВКонтакте">
+    <img src="https://static.tildacdn.com/tild3332-3839-4266-a666-663363343233/_.png" alt="Подписаться на нас ВКонтакте" />
+</a>
